@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<div class="target"></div>
+<script>
+    let target = document.querySelector('.target')
+
+    fetch('https://jsonplaceholder.typicode.com/users')
+        .then(value => value.json())
+        .then(value => {
+            for (const user of value) {
+                let div = document.createElement('div')
+                let divtext = document.createElement('div')
+                divtext.className = "divtext"
+                divtext.innerText = user.name
+                div.className = "users"
+                let btn = document.createElement('div')
+                btn.className = "btn"
+                div.appendChild(divtext)
+                div.appendChild(btn)
+                let a = document.createElement('a')
+                a.innerText = 'user.details'
+                a.href = 'user-details.html?id=' + user.id;
+                btn.appendChild(a)
+                target.appendChild(div)
+            }
+        } )
+</script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<button class="button"></button>
+<div class="totalinfo">
+<div class="info"></div>
+<div class="info2"></div>
+
+</div>
+<div class=" divbtn"></div>
+<div class="divposts"></div>
+<script>
+    let divposts = document.querySelector('.divposts')
+    let target = document.querySelector('.info')
+    let url = new URL (location.href);
+    let id = url.searchParams.get("id");
+    let btn = document.querySelector('.button')
+    let divbtn = document.querySelector('.divbtn')
+    let info2 = document.querySelector('.info2')
+    fetch('https://jsonplaceholder.typicode.com/users/' + id)
+    .then(response => response.json())
+    .then(value => {
+
+        for (const key in value) {
+            let div = document.createElement('div')
+            div.className = "infouser"
+
+            if (typeof value[key] !== 'object' ) {
+                div.innerText = `${key} - ${value[key]} `
+            }else {
+                let object =document.createElement('div')
+                object.innerText = `${key} :`
+                for (const item in value[key]) {
+                 let itemdiv = document.createElement('div')
+
+                 if (typeof value[key][item] !== 'object' ){
+                 itemdiv.innerText =`${item} - ${value[key][item]}`
+                 }else{
+                     itemdiv.innerText =`${item} : `
+                     for (const detal in value[key][item]) {
+                         let detalitemdiv = document.createElement('div')
+
+                         if (typeof value[key][item][detal] != 'object'){
+                             detalitemdiv.innerText= `${detal} - ${value[key][item][detal]} `
+                         }
+                         itemdiv.append(detalitemdiv)
+                     }
+                 }
+                 object.append(itemdiv)
+                }info2.append(object)
+            }
+            target.append(div)
+        }
+
+
+
+
+
+
+    })
+    btn.onclick = function (){
+    fetch(`https://jsonplaceholder.typicode.com/users/${id}/posts`)
+    .then(value => value.json())
+    .then(posts => {
+        for (const post of posts) {
+
+            let div = document.createElement('div')
+            div.innerText = post.title
+            div.className="posts"
+            let a = document.createElement('a')
+            a.innerText = 'post-details'
+            a.href = 'post-details.html?id=' + post.id;
+            let href =document.createElement('div')
+            href.appendChild(a)
+            div.appendChild(href)
+            divposts.appendChild(div)
+
+
+
+        }
+    })}
+    divbtn.append(btn)
+    btn.innerHTML = 'post of current user'
+</script>
+
+
+
+</body>
+</html>

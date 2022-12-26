@@ -1,0 +1,108 @@
+.users{
+    background: rgba(0,0,0,0.44);
+    position: relative;
+    height: 100px;
+    width: 300px;
+    margin: 40px;
+    border-radius: 10px;
+}
+.target{
+    background: white;
+    height: 900px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.btn{
+
+    font-size: 15px;
+    background: rgba(0,0,0,0.22);
+    padding: 10px 20px;
+    margin-left: 92px;
+    border-radius: 10px;
+
+    display: inline-block;
+    text-decoration: white;
+}
+
+.divtext{
+    font-size: 23px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    width: 300px;
+    height: 20px;
+    display: block;
+}
+.totalinfo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+}
+.info{
+    background: rgba(0,0,0,0.44);
+    flex-wrap: wrap;
+    height: 250px;
+    width: 50%;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+
+}
+.info2{
+    width: 50%;
+    background: rgba(0,0,0,0.44);
+    flex-wrap: wrap;
+    height: 250px;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 10px;
+}
+.divposts{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.posts{
+    background: rgba(0,0,0,0.44);
+    height: 140px;
+    width: 15%;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.infouser{
+width: 100%;
+}
+.divbtn{
+    display: flex;
+    justify-content: center;
+}
+.button{
+    width: 90%;
+    height: 30px;
+}
+.postDetails{
+    background: rgba(0,0,0,0.44);
+    padding: 20px;
+    border-radius: 10px;
+}
+.comnts{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.commnt{
+    background: rgba(0,0,0,0.44);
+    width: 18%;
+    margin: 10px;
+    height: 200px;
+    padding: 10px;
+    border-radius: 10px;
+}
